@@ -5,7 +5,7 @@ export const HomeContainer = styled.div`
   padding: 10px 100px;
 `;
 
-export const UnorderedHabitList = styled.ul`
+export const UnorderedHabitList = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0;

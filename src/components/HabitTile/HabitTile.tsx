@@ -1,10 +1,14 @@
 import React from 'react'
-import { HomeTile } from './HabitTile.styled'
+import { TileContainer } from './HabitTile.styled'
+import headshot from '../../assets/headshot.jpg'
 
 export default function HabitTile() {
   return (
-    <HomeTile>
-        <p>cool tile</p>
-    </HomeTile>
+    <TileContainer>
+        <div>
+          <img src={headshot} />
+        </div>
+        <h1>cool tile</h1>
+    </TileContainer>
   )
 }
