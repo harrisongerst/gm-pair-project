@@ -1,0 +1,20 @@
+ [
+    {
+      "habit_name": "Running",
+      "icon": "https://thumbs.dreamstime.com/z/thin-line-running-man-icon-white-background-100364493.jpg",
+      "start_date": "3/20/23",
+      "description": "This is a habit where you should run"
+    },
+    {
+      "habit_name": "Drink Water",
+      "icon": "https://thumbs.dreamstime.com/z/thin-line-running-man-icon-white-background-100364493.jpg",
+      "start_date": "3/20/23",
+      "description": "This is a habit where you should drink water"
+    },
+    {
+      "habit_name": "Read book",
+      "icon": "https://thumbs.dreamstime.com/z/thin-line-running-man-icon-white-background-100364493.jpg",
+      "start_date": "3/20/23",
+      "description": "This is a habit where you should read a book"
+    }
+  ]

@@ -3,6 +3,7 @@ import './App.css';
 import FormModal from './components/FormModal/FormModal';
 import Navbar from './components/Header/Navbar';
 import { HabitInfo } from './types';
+import Home from './pages/Home/Home';
 
 export type Setter = React.Dispatch<React.SetStateAction<HabitInfo[]>>;
 export interface State {
@@ -34,6 +35,7 @@ function App() {
 			<div className='App'>
 				<Navbar />
 				<FormModal />
+        <Home />
 			</div>
 		</StateContext.Provider>
 	);
