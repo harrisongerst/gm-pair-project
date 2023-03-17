@@ -1,40 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { HomeContainer } from "./Home.styled";
-import HabitTile from "../../components/HabitTile/HabitTile";
-import axios from "axios";
-
-export interface HabitData {
-  habit_name: string;
-  icon: string;
-  start_date: string;
-  description: string;
-}
+import { HomeContainer } from './Home.styled';
+import HabitTile from '../../components/HabitTile/HabitTile';
+import { useContext } from 'react';
+import { StateContext } from '../../App';
 
 export default function Home() {
-  const [data, setData] = useState<HabitData[]>([]);
-  // const fetchData = async () => {
-  //   const newData = await fetch("dummyData.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   });
-  //   const jsonData = newData.json();
-  // };
-  useEffect(() => {
-    axios.get("dummyData.json").then((res) => {
-      setData(res.data);
-    });
+	const state = useContext(StateContext);
+	console.log(state.userData);
 
-  }, []);
-
-  return (
-    <HomeContainer>
-      {data.map((habit) => {
-        return (
-          <HabitTile {...habit} />
-        )
-      })}
-    </HomeContainer>
-  );
+	return (
+		<HomeContainer>
+			{state.userData.length !== 0 &&
+				state.userData.map((habit, index) => {
+					return (
+						<HabitTile
+							{...habit}
+							key={index}
+						/>
+					);
+				})}
+		</HomeContainer>
+	);
 }

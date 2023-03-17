@@ -29,6 +29,9 @@ export const Form = styled.form`
 	font-weight: 700;
 	font-size: 16px;
 	display: block;
+	button {
+		margin-top: 0.5em;
+	}
 
 	label {
 		display: block;
@@ -49,7 +52,7 @@ export const Form = styled.form`
 	}
 
 	select {
-		background: transparent;
+		background: white;
 		outline: 0;
 		border-width: 0 0 2px;
 		border-color: #0e0e0e;
@@ -84,8 +87,8 @@ export const ModalContainer = styled.div`
 	border: 1px solid #0e0e0e;
 	border-radius: 0.5em;
 	background: #bcccd0;
-	width: 40%;
-	height: 40%;
+	/* width: 20%; */
+	/* height: 20%; */
 	transition: all 0.3s linear;
 	position: absolute;
 	z-index: 10;

@@ -35,7 +35,7 @@ function App() {
 			<div className='App'>
 				<Navbar />
 				<FormModal />
-        <Home />
+				<Home />
 			</div>
 		</StateContext.Provider>
 	);
