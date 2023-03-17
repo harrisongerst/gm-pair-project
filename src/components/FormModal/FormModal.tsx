@@ -24,6 +24,7 @@ export default function FormModal() {
 			.min(2, 'Too Short!')
 			.max(100, 'Too Long!')
 			.required('Required'),
+		completeAmount: Yup.number().min(0, 'Enter a number').required('Required'),
 	});
 
 	const formik = useFormik({
@@ -31,8 +32,9 @@ export default function FormModal() {
 			habit_name: '',
 			icon: '',
 			start_date: today,
+			end_date: '',
 			description: '',
-			completeAmount: 10,
+			completeAmount: 0,
 		},
 		validationSchema: SignupSchema,
 		onSubmit: (values) => {
@@ -70,7 +72,8 @@ export default function FormModal() {
 							<label htmlFor='icon'>Habit Icon: </label>
 							<select
 								id='icon'
-								onChange={formik.handleChange}>
+								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}>
 								<option value={''}> </option>
 								<option
 									value={`https://thumbs.dreamstime.com/z/
@@ -78,9 +81,6 @@ export default function FormModal() {
 									Running Man
 								</option>
 							</select>
-							{formik.errors.habit_name && formik.touched.habit_name && (
-								<ErrorMessage>{formik.errors.habit_name}</ErrorMessage>
-							)}
 							<label htmlFor='start_date'>Start Date: </label>
 							<input
 								type='date'
@@ -90,6 +90,15 @@ export default function FormModal() {
 								onBlur={formik.handleBlur}
 								value={formik.values.start_date}
 							/>
+							<label htmlFor='end_date'>End Date: </label>
+							<input
+								type='date'
+								id='end_date'
+								min={today}
+								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}
+								value={formik.values.end_date}
+							/>
 							<label htmlFor='desc'>Description: </label>
 							<textarea
 								typeof='text'
@@ -97,6 +106,22 @@ export default function FormModal() {
 								onChange={formik.handleChange}
 								onBlur={formik.handleBlur}
 								value={formik.values.description}></textarea>
+							{formik.errors.description && formik.touched.description && (
+								<ErrorMessage>{formik.errors.description}</ErrorMessage>
+							)}
+							<label htmlFor='completeAmount'>Completion Amount: </label>
+							<input
+								id='completeAmount'
+								type='number'
+								min={0}
+								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}
+							/>
+							{formik.errors.completeAmount &&
+								formik.touched.completeAmount && (
+									<ErrorMessage>{formik.errors.completeAmount}</ErrorMessage>
+								)}
+
 							<div>
 								<button
 									type='reset'

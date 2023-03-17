@@ -9,7 +9,7 @@ export default function HabitTile(props: HabitInfo) {
 	return (
 		<TileContainer
 			onClick={() => {
-				setCount((pre) => (pre >= 10 ? pre : pre + 1));
+				setCount((pre) => (pre >= completeAmount ? pre : pre + 1));
 			}}>
 			<div>
 				<section>
