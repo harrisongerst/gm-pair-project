@@ -7,7 +7,7 @@ export default function HabitTile(props: HabitInfo) {
 	const [count, setCount] = useState<number>(0);
 
 	return (
-		<TileContainer
+		<TileContainer maxAmount={completeAmount} count={count}
 			onClick={() => {
 				setCount((pre) => (pre >= completeAmount ? pre : pre + 1));
 			}}>
