@@ -5,4 +5,5 @@ export interface HabitInfo {
 	end_date: string;
 	description: string;
 	completeAmount: number;
+	isBadHabit: boolean
 }
