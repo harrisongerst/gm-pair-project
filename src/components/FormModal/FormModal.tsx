@@ -35,10 +35,12 @@ export default function FormModal() {
 			end_date: '',
 			description: '',
 			completeAmount: 0,
+			isBadHabit: false
 		},
 		validationSchema: SignupSchema,
 		onSubmit: (values) => {
 			state.setUserData((pre) => [...pre, values]);
+			console.log(state.userData);
 			state.setModalIsOpen(!state.modalIsOpen);
 			formik.resetForm();
 		},
@@ -121,6 +123,14 @@ export default function FormModal() {
 								formik.touched.completeAmount && (
 									<ErrorMessage>{formik.errors.completeAmount}</ErrorMessage>
 								)}
+							<label>Is this a bad habit?</label>
+							<input 
+								id='isBadHabit'
+								type='checkbox'
+								checked={formik.values.isBadHabit === true}
+								onChange={formik.handleChange}
+							/>
+
 
 							<div>
 								<button
