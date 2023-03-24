@@ -18,6 +18,7 @@ export const StateContext = createContext<State>({
 	setUserData: () => {},
 	modalIsOpen: false,
 	setModalIsOpen: () => {},
+
 });
 
 function App() {
