@@ -1,11 +1,17 @@
 import { HomeContainer } from './Home.styled';
 import HabitTile from '../../components/HabitTile/HabitTile';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { StateContext } from '../../App';
+import { getAllHabits } from '../../api/services';
 
 export default function Home() {
 	const state = useContext(StateContext);
-	console.log(state.userData);
+
+	useEffect(() => {
+		getAllHabits().then((res) => {
+			state.setUserData(res.data);
+		});
+	}, [state, state.modalIsOpen]);
 
 	return (
 		<HomeContainer>

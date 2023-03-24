@@ -5,4 +5,10 @@ export interface HabitInfo {
 	end_date: string;
 	description: string;
 	completeAmount: number;
+	count?: number;
+	id?: number;
+}
+export interface HabitsUpdate {
+	id: number;
+	count: number;
 }

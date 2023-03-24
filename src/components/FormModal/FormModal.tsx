@@ -10,6 +10,7 @@ import { format } from 'date-fns';
 import { useContext } from 'react';
 import { StateContext } from '../../App';
 import * as Yup from 'yup';
+import { createHabits } from '../../api/services';
 
 export default function FormModal() {
 	const today = format(new Date(), 'yyyy-MM-dd');
@@ -38,9 +39,11 @@ export default function FormModal() {
 		},
 		validationSchema: SignupSchema,
 		onSubmit: (values) => {
-			state.setUserData((pre) => [...pre, values]);
+			// state.setUserData((pre) => [...pre, values]);
+			createHabits(values);
 			state.setModalIsOpen(!state.modalIsOpen);
 			formik.resetForm();
+			// window.location.reload();
 		},
 	});
 
@@ -53,11 +56,7 @@ export default function FormModal() {
 			{state.modalIsOpen && (
 				<ModalOverlay show='flex'>
 					<ModalContainer>
-						<Form
-							onSubmit={(e) => {
-								e.preventDefault();
-								formik.handleSubmit();
-							}}>
+						<Form onSubmit={formik.handleSubmit}>
 							<label htmlFor='habit_name'>Habit Name: </label>
 							<input
 								type='text'
